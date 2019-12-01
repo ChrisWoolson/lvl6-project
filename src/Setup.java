@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.BufferedReader;
@@ -17,6 +18,7 @@ public class Setup implements KeyListener {
 	JFrame frame = new JFrame();
 	JPanel panelTitle = new JPanel();
 	JPanel panelNames = new JPanel();
+	
 	JLabel labelLevel = new JLabel();
 	JLabel labelNames = new JLabel();
 	JLabel labelLocation = new JLabel();
@@ -43,8 +45,9 @@ public class Setup implements KeyListener {
 		panelTitle.setBounds(0,0,300,100);
 		panelTitle.setLayout(null);
 		
+		
 		frame.add(panelNames);
-		panelNames.setBounds(0,200,200,100);
+		panelNames.setBounds(0,200,300,300);
 		panelNames.setLayout(null);
 		
 		
@@ -55,7 +58,7 @@ public class Setup implements KeyListener {
 		labelNames.setBounds(0,20,50,50);
 		
 		panelTitle.add(labelLocation);
-		labelLocation.setBounds(150,20,90,50);
+		labelLocation.setBounds(150,20,90,20);
 		
 		labelLevel.setVisible(true);
 		labelNames.setVisible(true);
@@ -70,27 +73,42 @@ public class Setup implements KeyListener {
 		frame.setSize(500,500);
 		frame.addKeyListener(this);
 
-		LoadInfo("NamesLocations");
+		LoadInfo("src/NamesLocations");
+		
+		System.out.println(currentLevel);
+		labelLevel.setText("Level: " + currentLevel);
+		
+		levelChange();
+		
+		
+		
 		
 	}
 
+	
 	public void levelChange() {
-		System.out.println(currentLevel);
+		int slotNum = 0;
+		
+		 panelNames.removeAll();
+		panelNames.revalidate();
+		panelNames.setBackground(Color.gray);
+		
+		
 		labelLevel.setText("Level: " + currentLevel);
+		
+		
+		
 		
 		for (int i = 0; i < students.size(); i++) {
 			if(students.get(i).Level == currentLevel) {
 				JLabel label = new JLabel();
 				panelNames.add(label);
-				label.setBounds(0,i*20, 20,200);
-				
+				label.setBounds(0,(slotNum*30)+100, 250,30);
+				label.setText(students.get(i).Name + "                 " + students.get(i).Location);
+			slotNum++;
 			}
 		}
-		
-		
-		
-		
-		
+
 	}
 
 	@Override
@@ -154,7 +172,7 @@ public class Setup implements KeyListener {
 		String l = line.substring(0,1);
 		int level = Integer.parseInt(l);
 		student.Level= level;
-		String n = line.substring(commaLocation+2, semicolonLocation-1);
+		String n = line.substring(commaLocation+2, semicolonLocation);
 		student.Name= n;
 		
 		String location = line.substring(semicolonLocation+2, line.length());

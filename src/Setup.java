@@ -11,43 +11,41 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class Setup implements KeyListener {
+public class Setup {
 
 	JFrame frame = new JFrame();
 	JPanel panelTitle = new JPanel();
 	JPanel panelNames = new JPanel();
-
+int level=0;
 	JLabel labelLevel = new JLabel();
 	JLabel labelNames = new JLabel();
 	JLabel labelLocation = new JLabel();
 	ArrayList<Student> students = new ArrayList<Student>();
-	ArrayList<String> levelNumber = new ArrayList<String>();
-	int currentLevel = 0;
+	
+	
 
 	public static void main(String[] args) {
+		
 		Setup set = new Setup();
 		set.setup();
 
 	}
 
 	public void setup() {
-		System.out.println("ran setup");
+		String input = JOptionPane.showInputDialog("What level is this screen displaying?");
+		level = Integer.parseInt(input);
 
-		levelNumber.add("Level 1");
-		levelNumber.add("Level 2");
-		levelNumber.add("Level 3");
-		levelNumber.add("Level 4");
-		levelNumber.add("Level 5");
-
+		
 		frame.add(panelTitle);
 		panelTitle.setBounds(0, 0, 300, 100);
 		panelTitle.setLayout(null);
 
-		frame.add(panelNames);
-		panelNames.setBounds(0, 200, 300, 300);
-		panelNames.setLayout(null);
+		//frame.add(panelNames);
+		//panelNames.setBounds(0, 200, 300, 300);
+		//panelNames.setLayout(null);
 
 		panelTitle.add(labelLevel);
 		labelLevel.setBounds(0, 0, 50, 30);
@@ -56,37 +54,35 @@ public class Setup implements KeyListener {
 		labelNames.setBounds(0, 20, 50, 50);
 
 		panelTitle.add(labelLocation);
-		labelLocation.setBounds(150, 20, 90, 20);
+		labelLocation.setBounds(150, 20, 80, 50);
 
 		labelLevel.setVisible(true);
 		labelNames.setVisible(true);
 		labelLocation.setVisible(true);
 
-		labelLevel.setText("Level: 0");
+		labelLevel.setText("Level: "+level);
 		labelNames.setText("Names:");
 		labelLocation.setText("Location:");
 
 		frame.setVisible(true);
 		frame.setSize(500, 500);
-		frame.addKeyListener(this);
-
+		
 		LoadInfo("/Users/league/Desktop/lvl6-project/pike13.json");
 
-		System.out.println(currentLevel);
-		labelLevel.setText("Level: " + currentLevel);
+		
 
-		levelChange();
+		
 
 	}
 
-	public void levelChange() {
+	/* public void levelChange() {
 		int slotNum = 0;
 
 		panelNames.removeAll();
 		panelNames.revalidate();
 		panelNames.setBackground(Color.gray);
 
-		labelLevel.setText("Level: " + currentLevel);
+		labelLevel.setText("Level: " + level);
 
 		for (int i = 0; i < students.size(); i++) {
 			if (students.get(i).Level == currentLevel) {
@@ -99,7 +95,10 @@ public class Setup implements KeyListener {
 		}
 
 	}
-
+*/
+	
+	
+/*
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
@@ -122,7 +121,9 @@ public class Setup implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 	}
-
+*/
+	
+	
 	public void LoadInfo(String string) {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(string));
@@ -153,7 +154,7 @@ public class Setup implements KeyListener {
 
 		ArrayList<Student> students = new ArrayList<Student>();
 
-		// System.out.println(line);
+		
 
 		for (int i = 2; i < line.length(); i++) {
 			if (line.substring(i, i + 1).equals("{")) {
@@ -173,32 +174,59 @@ public class Setup implements KeyListener {
 			}
 
 		}
+		
 		return students;
-
-		/*
-		 * int commaLocation = 0; int semicolonLocation = 0;
-		 * 
-		 * 
-		 * for (int i = 0; i < line.length(); i++) { if(line.substring(i,
-		 * i+1).equals(",")) { commaLocation=i; } if(line.substring(i,i+1).equals(";"))
-		 * { semicolonLocation = i; } }
-		 * 
-		 * String l = line.substring(0,1); int level = Integer.parseInt(l);
-		 * student.Level= level; String n = line.substring(commaLocation+2,
-		 * semicolonLocation); student.Name= n;
-		 * 
-		 * String location = line.substring(semicolonLocation+2, line.length());
-		 * student.Location= location;
-		 * 
-		 * 
-		 */
+		
 	}
 
 	public Student SortStudent(String studentLine) {
-		int startFirstName = 0;
+		boolean firstNameFound = false;
+		boolean lastNameFound = false;
+		boolean classLevelFound = false;
+		boolean locationFound = false;
+		System.out.println("sorting student");
+		System.out.println(studentLine);
+		String firstName = "";
+		String lastName = "";
+		String classLevel = "";
+		String location = "";
+		ArrayList<String>  betweenQuotes = getBetweenQuotes(studentLine);
+		
+		for (String string : betweenQuotes) {
+			System.out.println(string);
+		}
+		
+		for (int i = 0; i < betweenQuotes.size(); i++) {
+			if(betweenQuotes.get(i).equals("first_name") && firstNameFound == false) {
+				
+				firstName = betweenQuotes.get(i+2);
+				System.out.println("First name is "+firstName);
+				firstNameFound = true;
+			}
+			if(betweenQuotes.get(i).equals("last_name") && lastNameFound == false) {
+				lastName = betweenQuotes.get(i+2);
+				System.out.println("Last name is "+lastName);
+				lastNameFound= true;
+			}
+			if(betweenQuotes.get(i).equals("Current Class Level") && classLevelFound == false) {
+				classLevel = betweenQuotes.get(i+4);
+				System.out.println("Class Level is "+classLevel);
+				classLevelFound= true;
+			}
+			if(betweenQuotes.get(i).equals("location") && locationFound == false) {
+				location = betweenQuotes.get(i+6);
+				System.out.println("location is "+location);
+				locationFound = true;
+			}
+		}
+		Student s = new Student();
+		s.Name = firstName+" "+lastName;
+		s.Location = location;
+		s.Level= Integer.parseInt(classLevel);
+		/* int startFirstName = 0;
 		int endFirstName = 0;
 		Student s = new Student();
-		System.out.println(studentLine);
+		
 
 		for (int i = 0; i < studentLine.length(); i++) {
 
@@ -208,16 +236,35 @@ public class Setup implements KeyListener {
 				
 				for (int j = i; j < studentLine.length(); j++) {
 					if (studentLine.substring(j, j + 1).equals("\"")) {
+						endFirstName = j;
 					//Search between parenthesis here. Do for next class
+						if(studentLine.substring(startFirstName, endFirstName).equals("first_name")) {
+							System.out.println(studentLine.substring(endFirstName+2,));
+						}
 					break;
 					}
 				}
 			}
 
+		} */
+
+		return s;
+
+	}
+	
+	ArrayList<String> getBetweenQuotes(String string) {
+		ArrayList<String> inBetweenQuotes = new ArrayList<String>();
+		for (int i = 0; i < string.length(); i++) {
+			if(string.substring(i,i+1).equals("\"")) {
+				for (int j = i+1; j < string.length(); j++) {
+					if(string.substring(j,j+1).equals("\"")) {
+						inBetweenQuotes.add(string.substring(i+1,j));
+						break;
+					}
+				}
+			}
 		}
-
-		return null;
-
+		return inBetweenQuotes;
 	}
 
 }

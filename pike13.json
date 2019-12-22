@@ -1,1 +1,286 @@
-{"people":[{"id":4307158,"first_name":"Guest","middle_name":"May","last_name":"Student","guardian_name":"Guest Student Sr.","name":"Guest Student","membership":"No Membership","is_member":false,"joined_at":"2017-05-24T18:41:44Z","phone":"(999) 999-9999","email":"testTest23@test.com","address":"8888 fakeStreet, San Diego, CA 92101","secondary_info_field":"1","guardian_email":"matt.freedman@jointheleague.org","timezone":"America/Los_Angeles","business_id":16889,"updated_at":"2019-11-16T19:49:13Z","deleted_at":null,"hidden_at":null,"birthdate":"2013-04-01","location_id":28183,"profile_photo":{"x50":"https://d1nqv8xdwxria6.cloudfront.net/uploads/profile_photo/image/5b0c68e5-3b17-4aaf-9787-48c45158c9f9/image_profile_x50.jpeg","x100":"https://d1nqv8xdwxria6.cloudfront.net/uploads/profile_photo/image/5b0c68e5-3b17-4aaf-9787-48c45158c9f9/image_profile_x100.jpeg","x200":"https://d1nqv8xdwxria6.cloudfront.net/uploads/profile_photo/image/5b0c68e5-3b17-4aaf-9787-48c45158c9f9/image_profile_x200.jpeg","x400":"https://d1nqv8xdwxria6.cloudfront.net/uploads/profile_photo/image/5b0c68e5-3b17-4aaf-9787-48c45158c9f9/image_profile_x400.jpeg"},"custom_fields":[{"id":22893344,"custom_field_id":157737,"name":"Current Class Level","value":"1"},{"id":14966501,"custom_field_id":106463,"name":"Current Grade","value":"7th"},{"id":14966498,"custom_field_id":106321,"name":"Emergency Contact Full Name","value":"Guest Student Sr."},{"id":17150347,"custom_field_id":149434,"name":"Emergency Contact, Email","value":"testStudentParent@notReal.com"},{"id":14966499,"custom_field_id":106322,"name":"Emergency Contact, Phone Number","value":"(888) 888-8888"},{"id":17150345,"custom_field_id":148655,"name":"Enrollment Status","value":"Moved"},{"id":14966505,"custom_field_id":108413,"name":"Financial Aid %/Billing Note","value":"100"},{"id":14966506,"custom_field_id":106317,"name":"Financial Aid Y/N","value":true},{"id":14966497,"custom_field_id":106320,"name":"Gender","value":"Male"},{"id":14966504,"custom_field_id":127885,"name":"GitHub acct name","value":"GuestTest8765"},{"id":17150344,"custom_field_id":148317,"name":"Grant Info","value":"DD-Sch"},{"id":14966508,"custom_field_id":145902,"name":"High School Graduation Year","value":"2056"},{"id":14966502,"custom_field_id":106498,"name":"Home Phone","value":"(888) 888-8888"},{"id":23057383,"custom_field_id":158633,"name":"Last Exam Score","value":"AP CompA 4"},{"id":14966494,"custom_field_id":106316,"name":"Name of School Attending","value":"Not Real HIgh School"},{"id":17150346,"custom_field_id":149207,"name":"Stop receiving newsletter?","value":true},{"id":14966507,"custom_field_id":128371,"name":"Where did you hear about us?","value":["Parent/student of The League"]},{"id":17150343,"custom_field_id":147039,"name":"Who can we thank?","value":"I don't know?"}],"dependents":[],"providers":[{"id":5392542,"first_name":"Guest","middle_name":null,"last_name":"Parent","guardian_name":null,"name":"Guest Parent","membership":"No Membership","is_member":false,"joined_at":"2018-03-09T23:17:09Z","phone":null,"email":null,"address":null,"secondary_info_field":"1","guardian_email":null,"timezone":"America/Los_Angeles","business_id":16889,"updated_at":"2018-12-19T06:49:35Z","deleted_at":null,"hidden_at":null,"birthdate":null,"location_id":22675,"custom_fields":[{"id":23059609,"custom_field_id":157737,"name":"Current Class Level","value":"1"},{"id":19039240,"custom_field_id":106463,"name":"Current Grade","value":""},{"id":19039238,"custom_field_id":106321,"name":"Emergency Contact Full Name","value":""},{"id":19039251,"custom_field_id":149434,"name":"Emergency Contact, Email","value":""},{"id":19039239,"custom_field_id":106322,"name":"Emergency Contact, Phone Number","value":""},{"id":19039249,"custom_field_id":148655,"name":"Enrollment Status","value":""},{"id":19039243,"custom_field_id":108413,"name":"Financial Aid %/Billing Note","value":""},{"id":19039244,"custom_field_id":106317,"name":"Financial Aid Y/N","value":false},{"id":19039237,"custom_field_id":106320,"name":"Gender","value":""},{"id":19039242,"custom_field_id":127885,"name":"GitHub acct name","value":""},{"id":19039248,"custom_field_id":148317,"name":"Grant Info","value":""},{"id":19039246,"custom_field_id":145902,"name":"High School Graduation Year","value":""},{"id":19039241,"custom_field_id":106498,"name":"Home Phone","value":""},{"id":23059610,"custom_field_id":158633,"name":"Last Exam Score","value":"L0 22"},{"id":19039235,"custom_field_id":106316,"name":"Name of School Attending","value":""},{"id":19039250,"custom_field_id":149207,"name":"Stop receiving newsletter?","value":false},{"id":19039245,"custom_field_id":128371,"name":"Where did you hear about us?","value":[]},{"id":19039247,"custom_field_id":147039,"name":"Who can we thank?","value":""}]}],"location":{"id":28183,"name":"Wilson Middle School (WMS)","slug":"wilson-middle-school-wms"}}]}
+{
+    "people": [
+        {
+            "id": 4307158,
+            "first_name": "Guest",
+            "middle_name": "May",
+            "last_name": "Student",
+            "guardian_name": "Guest Student Sr.",
+            "name": "Guest Student",
+            "membership": "No Membership",
+            "is_member": false,
+            "joined_at": "2017-05-24T18:41:44Z",
+            "phone": "(999) 999-9999",
+            "email": "testTest23@test.com",
+            "address": "8888 fakeStreet, San Diego, CA 92101",
+            "secondary_info_field": "1",
+            "guardian_email": "matt.freedman@jointheleague.org",
+            "timezone": "America/Los_Angeles",
+            "business_id": 16889,
+            "updated_at": "2019-11-16T19:49:13Z",
+            "deleted_at": null,
+            "hidden_at": null,
+            "birthdate": "2013-04-01",
+            "location_id": 28183,
+            "profile_photo": {
+                "x50": "https://d1nqv8xdwxria6.cloudfront.net/uploads/profile_photo/image/5b0c68e5-3b17-4aaf-9787-48c45158c9f9/image_profile_x50.jpeg",
+                "x100": "https://d1nqv8xdwxria6.cloudfront.net/uploads/profile_photo/image/5b0c68e5-3b17-4aaf-9787-48c45158c9f9/image_profile_x100.jpeg",
+                "x200": "https://d1nqv8xdwxria6.cloudfront.net/uploads/profile_photo/image/5b0c68e5-3b17-4aaf-9787-48c45158c9f9/image_profile_x200.jpeg",
+                "x400": "https://d1nqv8xdwxria6.cloudfront.net/uploads/profile_photo/image/5b0c68e5-3b17-4aaf-9787-48c45158c9f9/image_profile_x400.jpeg"
+            },
+            "custom_fields": [
+                {
+                    "id": 22893344,
+                    "custom_field_id": 157737,
+                    "name": "Current Class Level",
+                    "value": "1"
+                },
+                {
+                    "id": 14966501,
+                    "custom_field_id": 106463,
+                    "name": "Current Grade",
+                    "value": "7th"
+                },
+                {
+                    "id": 14966498,
+                    "custom_field_id": 106321,
+                    "name": "Emergency Contact Full Name",
+                    "value": "Guest Student Sr."
+                },
+                {
+                    "id": 17150347,
+                    "custom_field_id": 149434,
+                    "name": "Emergency Contact, Email",
+                    "value": "testStudentParent@notReal.com"
+                },
+                {
+                    "id": 14966499,
+                    "custom_field_id": 106322,
+                    "name": "Emergency Contact, Phone Number",
+                    "value": "(888) 888-8888"
+                },
+                {
+                    "id": 17150345,
+                    "custom_field_id": 148655,
+                    "name": "Enrollment Status",
+                    "value": "Moved"
+                },
+                {
+                    "id": 14966505,
+                    "custom_field_id": 108413,
+                    "name": "Financial Aid %/Billing Note",
+                    "value": "100"
+                },
+                {
+                    "id": 14966506,
+                    "custom_field_id": 106317,
+                    "name": "Financial Aid Y/N",
+                    "value": true
+                },
+                {
+                    "id": 14966497,
+                    "custom_field_id": 106320,
+                    "name": "Gender",
+                    "value": "Male"
+                },
+                {
+                    "id": 14966504,
+                    "custom_field_id": 127885,
+                    "name": "GitHub acct name",
+                    "value": "GuestTest8765"
+                },
+                {
+                    "id": 17150344,
+                    "custom_field_id": 148317,
+                    "name": "Grant Info",
+                    "value": "DD-Sch"
+                },
+                {
+                    "id": 14966508,
+                    "custom_field_id": 145902,
+                    "name": "High School Graduation Year",
+                    "value": "2056"
+                },
+                {
+                    "id": 14966502,
+                    "custom_field_id": 106498,
+                    "name": "Home Phone",
+                    "value": "(888) 888-8888"
+                },
+                {
+                    "id": 23057383,
+                    "custom_field_id": 158633,
+                    "name": "Last Exam Score",
+                    "value": "AP CompA 4"
+                },
+                {
+                    "id": 14966494,
+                    "custom_field_id": 106316,
+                    "name": "Name of School Attending",
+                    "value": "Not Real HIgh School"
+                },
+                {
+                    "id": 17150346,
+                    "custom_field_id": 149207,
+                    "name": "Stop receiving newsletter?",
+                    "value": true
+                },
+                {
+                    "id": 14966507,
+                    "custom_field_id": 128371,
+                    "name": "Where did you hear about us?",
+                    "value": [
+                        "Parent/student of The League"
+                    ]
+                },
+                {
+                    "id": 17150343,
+                    "custom_field_id": 147039,
+                    "name": "Who can we thank?",
+                    "value": "I don't know?"
+                }
+            ],
+            "dependents": [],
+            "providers": [
+                {
+                    "id": 5392542,
+                    "first_name": "Guest",
+                    "middle_name": null,
+                    "last_name": "Parent",
+                    "guardian_name": null,
+                    "name": "Guest Parent",
+                    "membership": "No Membership",
+                    "is_member": false,
+                    "joined_at": "2018-03-09T23:17:09Z",
+                    "phone": null,
+                    "email": null,
+                    "address": null,
+                    "secondary_info_field": "1",
+                    "guardian_email": null,
+                    "timezone": "America/Los_Angeles",
+                    "business_id": 16889,
+                    "updated_at": "2018-12-19T06:49:35Z",
+                    "deleted_at": null,
+                    "hidden_at": null,
+                    "birthdate": null,
+                    "location_id": 22675,
+                    "custom_fields": [
+                        {
+                            "id": 23059609,
+                            "custom_field_id": 157737,
+                            "name": "Current Class Level",
+                            "value": "1"
+                        },
+                        {
+                            "id": 19039240,
+                            "custom_field_id": 106463,
+                            "name": "Current Grade",
+                            "value": ""
+                        },
+                        {
+                            "id": 19039238,
+                            "custom_field_id": 106321,
+                            "name": "Emergency Contact Full Name",
+                            "value": ""
+                        },
+                        {
+                            "id": 19039251,
+                            "custom_field_id": 149434,
+                            "name": "Emergency Contact, Email",
+                            "value": ""
+                        },
+                        {
+                            "id": 19039239,
+                            "custom_field_id": 106322,
+                            "name": "Emergency Contact, Phone Number",
+                            "value": ""
+                        },
+                        {
+                            "id": 19039249,
+                            "custom_field_id": 148655,
+                            "name": "Enrollment Status",
+                            "value": ""
+                        },
+                        {
+                            "id": 19039243,
+                            "custom_field_id": 108413,
+                            "name": "Financial Aid %/Billing Note",
+                            "value": ""
+                        },
+                        {
+                            "id": 19039244,
+                            "custom_field_id": 106317,
+                            "name": "Financial Aid Y/N",
+                            "value": false
+                        },
+                        {
+                            "id": 19039237,
+                            "custom_field_id": 106320,
+                            "name": "Gender",
+                            "value": ""
+                        },
+                        {
+                            "id": 19039242,
+                            "custom_field_id": 127885,
+                            "name": "GitHub acct name",
+                            "value": ""
+                        },
+                        {
+                            "id": 19039248,
+                            "custom_field_id": 148317,
+                            "name": "Grant Info",
+                            "value": ""
+                        },
+                        {
+                            "id": 19039246,
+                            "custom_field_id": 145902,
+                            "name": "High School Graduation Year",
+                            "value": ""
+                        },
+                        {
+                            "id": 19039241,
+                            "custom_field_id": 106498,
+                            "name": "Home Phone",
+                            "value": ""
+                        },
+                        {
+                            "id": 23059610,
+                            "custom_field_id": 158633,
+                            "name": "Last Exam Score",
+                            "value": "L0 22"
+                        },
+                        {
+                            "id": 19039235,
+                            "custom_field_id": 106316,
+                            "name": "Name of School Attending",
+                            "value": ""
+                        },
+                        {
+                            "id": 19039250,
+                            "custom_field_id": 149207,
+                            "name": "Stop receiving newsletter?",
+                            "value": false
+                        },
+                        {
+                            "id": 19039245,
+                            "custom_field_id": 128371,
+                            "name": "Where did you hear about us?",
+                            "value": []
+                        },
+                        {
+                            "id": 19039247,
+                            "custom_field_id": 147039,
+                            "name": "Who can we thank?",
+                            "value": ""
+                        }
+                    ]
+                }
+            ],
+            "location": {
+                "id": 28183,
+                "name": "Wilson Middle School (WMS)",
+                "slug": "wilson-middle-school-wms"
+            }
+        }
+    ]
+}

@@ -24,9 +24,11 @@ int level=0;
 	JLabel labelNames = new JLabel();
 	JLabel labelLocation = new JLabel();
 	ArrayList<Student> students = new ArrayList<Student>();
+	//ArrayList<JPanel> studentPanels = new ArrayList<JPanel>();
+	ArrayList<JLabel> studentLabels = new ArrayList<JLabel>();
 	
-	
-
+	//this int will be modified so that it scrolls
+int y = 200;
 	public static void main(String[] args) {
 		
 		Setup set = new Setup();
@@ -36,13 +38,16 @@ int level=0;
 
 	public void setup() {
 		String input = JOptionPane.showInputDialog("What level is this screen displaying?");
+		System.out.println("setting up");
 		level = Integer.parseInt(input);
 
-		
+		frame.add(panelNames);
 		frame.add(panelTitle);
-		panelTitle.setBounds(0, 0, 300, 100);
+		panelTitle.setBounds(0, 0, 400, 100);
+		panelNames.setBounds(0,101,500,400);
+		
 		panelTitle.setLayout(null);
-
+		panelNames.setLayout(null);
 		//frame.add(panelNames);
 		//panelNames.setBounds(0, 200, 300, 300);
 		//panelNames.setLayout(null);
@@ -64,15 +69,35 @@ int level=0;
 		labelNames.setText("Names:");
 		labelLocation.setText("Location:");
 
-		frame.setVisible(true);
+		
 		frame.setSize(500, 500);
 		
-		LoadInfo("/Users/league/Desktop/lvl6-project/pike13.json");
-
 		
-
 		
-
+		
+		//panelNames.setVisible(true);
+		
+		
+		
+		
+		LoadInfo("/Users/league/Desktop/lvl6-project/realjson");
+System.out.println("~~~~~~~~Loaded info~~~~~~~~~");
+		
+for (int i = 0; i < students.size(); i++) {
+			//studentPanels.add(new JPanel());
+			//studentPanels.get(i).setVisible(true);
+			//setUpStudentPanel(studentPanels.get(i), students.get(i));
+			studentLabels.add(new JLabel());
+			//studentLabels.get(i).setVisible(true);
+			System.out.println(students.get(i).Name + "    "+ students.get(i).Location);
+			studentLabels.get(i).setBounds(0,(y + (50*i)),500,50);
+			studentLabels.get(i).setText(students.get(i).Name + "    "+ students.get(i).Location);
+			studentLabels.get(i).setVisible(true);
+			panelNames.add(studentLabels.get(i));
+		}
+		
+		
+frame.setVisible(true);
 	}
 
 	/* public void levelChange() {
@@ -137,6 +162,7 @@ int level=0;
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
+			System.out.println("File not found");
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -146,7 +172,8 @@ int level=0;
 	}
 
 	public ArrayList<Student> parseJson(String line) {
-
+		
+System.out.println(line);
 		int startStudent = 0;
 		int closeStudent = 0;
 		int openP = 0;
@@ -174,12 +201,13 @@ int level=0;
 			}
 
 		}
-		
+		System.out.println("returning students");
 		return students;
 		
 	}
 
 	public Student SortStudent(String studentLine) {
+		
 		boolean firstNameFound = false;
 		boolean lastNameFound = false;
 		boolean classLevelFound = false;
@@ -267,4 +295,14 @@ int level=0;
 		return inBetweenQuotes;
 	}
 
+	
+	public void setUpStudentLabel(JLabel label, Student student) {
+		System.out.println("Set up student label");
+		label.setBounds(0,y,500,50);
+		label.setVisible(true);
+		label.setText(student.Name + "    "+ student.Level +"     "+ student.Location);
+		
+	}
+	
+	
 }

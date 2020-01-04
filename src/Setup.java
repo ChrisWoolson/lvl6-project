@@ -28,7 +28,7 @@ int level=0;
 	ArrayList<JLabel> studentLabels = new ArrayList<JLabel>();
 	
 	//this int will be modified so that it scrolls
-int y = 200;
+int y = 0;
 	public static void main(String[] args) {
 		
 		Setup set = new Setup();
@@ -44,7 +44,7 @@ int y = 200;
 		frame.add(panelNames);
 		frame.add(panelTitle);
 		panelTitle.setBounds(0, 0, 400, 100);
-		panelNames.setBounds(0,101,500,400);
+		panelNames.setBounds(0,60,500,400);
 		
 		panelTitle.setLayout(null);
 		panelNames.setLayout(null);
@@ -59,14 +59,14 @@ int y = 200;
 		labelNames.setBounds(0, 20, 50, 50);
 
 		panelTitle.add(labelLocation);
-		labelLocation.setBounds(150, 20, 80, 50);
+		labelLocation.setBounds(148, 20, 80, 50);
 
 		labelLevel.setVisible(true);
 		labelNames.setVisible(true);
 		labelLocation.setVisible(true);
 
 		labelLevel.setText("Level: "+level);
-		labelNames.setText("Names:");
+		labelNames.setText("Name:");
 		labelLocation.setText("Location:");
 
 		
@@ -82,16 +82,25 @@ int y = 200;
 		
 		LoadInfo("/Users/league/Desktop/lvl6-project/realjson");
 System.out.println("~~~~~~~~Loaded info~~~~~~~~~");
-		
+		System.out.println("Number of students: "+ students.size());
 for (int i = 0; i < students.size(); i++) {
-			//studentPanels.add(new JPanel());
+	String spacing = "";
+	for (int j = 0; j < 28-students.get(i).Name.length(); j++) {
+		spacing+=" ";
+	}
+	//studentPanels.add(new JPanel());
 			//studentPanels.get(i).setVisible(true);
 			//setUpStudentPanel(studentPanels.get(i), students.get(i));
 			studentLabels.add(new JLabel());
 			//studentLabels.get(i).setVisible(true);
-			System.out.println(students.get(i).Name + "    "+ students.get(i).Location);
-			studentLabels.get(i).setBounds(0,(y + (50*i)),500,50);
-			studentLabels.get(i).setText(students.get(i).Name + "    "+ students.get(i).Location);
+			System.out.println(students.get(i).Name + "      "+ students.get(i).Location);
+			studentLabels.get(i).setBounds(0,(y + (20*i)),500,20);
+			
+			
+			studentLabels.get(i).setText(students.get(i).Name + spacing + students.get(i).Location);
+			
+			
+			
 			studentLabels.get(i).setVisible(true);
 			panelNames.add(studentLabels.get(i));
 		}
@@ -184,6 +193,8 @@ System.out.println(line);
 		
 
 		for (int i = 2; i < line.length(); i++) {
+			
+			
 			if (line.substring(i, i + 1).equals("{")) {
 				if (openP == 0) {
 					startStudent = i;
@@ -193,11 +204,20 @@ System.out.println(line);
 			if (line.substring(i, i + 1).equals("}")) {
 				closeP++;
 			}
-			if (openP == closeP && openP != 0) {
+			
+if (openP == closeP && openP != 0 ) {
 				closeStudent = i;
-
+				
 				Student s = SortStudent(line.substring(startStudent, closeStudent));
 				students.add(s);
+				
+				line = line.substring(closeStudent+2, line.length());
+				openP = 0;
+				closeP = 0;
+				startStudent = 0;
+				closeStudent = 0;
+				i=0;
+				System.out.println(line);
 			}
 
 		}
@@ -221,7 +241,7 @@ System.out.println(line);
 		ArrayList<String>  betweenQuotes = getBetweenQuotes(studentLine);
 		
 		for (String string : betweenQuotes) {
-			System.out.println(string);
+			//System.out.println(string);
 		}
 		
 		for (int i = 0; i < betweenQuotes.size(); i++) {
@@ -295,14 +315,15 @@ System.out.println(line);
 		return inBetweenQuotes;
 	}
 
-	
+	/*
 	public void setUpStudentLabel(JLabel label, Student student) {
+		System.out.println("used student label");
 		System.out.println("Set up student label");
 		label.setBounds(0,y,500,50);
 		label.setVisible(true);
 		label.setText(student.Name + "    "+ student.Level +"     "+ student.Location);
 		
 	}
-	
+	*/
 	
 }

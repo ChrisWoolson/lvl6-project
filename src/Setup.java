@@ -182,8 +182,36 @@ frame.setVisible(true);
 
 	public ArrayList<Student> parseJson(String line) {
 		
-System.out.println(line);
-		int startStudent = 0;
+		int openP = 0;
+		int closeP = 0;
+		//This cuts out the {"People":[
+line = line.substring(11, line.length());
+System.out.println("Whole Line:   "+line);
+
+for (int i = 0; i < line.length(); i++) {
+	if (line.substring(i, i + 1).equals("{")) {
+		openP++;
+	}
+	if (line.substring(i, i + 1).equals("}")) {
+		closeP++;
+	}
+	
+	if(openP == closeP && closeP != 0) {
+		Student s = SortStudent(line.substring(0,i));
+		students.add(s);
+		
+		
+		openP = 0;
+		closeP = 0;
+		line = line.substring(i, line.length());
+		i = 0;
+		System.out.println("New line    "+ line);
+	}
+	
+}
+
+
+		/* int startStudent = 0;
 		int closeStudent = 0;
 		int openP = 0;
 		int closeP = 0;
@@ -206,24 +234,30 @@ System.out.println(line);
 			}
 			
 if (openP == closeP && openP != 0 ) {
-				closeStudent = i;
+				
+	closeStudent = i;
 				
 				Student s = SortStudent(line.substring(startStudent, closeStudent));
 				students.add(s);
 				
-				line = line.substring(closeStudent+2, line.length());
+				
 				openP = 0;
 				closeP = 0;
 				startStudent = 0;
 				closeStudent = 0;
 				i=0;
-				System.out.println(line);
-			}
+				line = line.substring(closeStudent+2, line.length());
+				
+				System.out.println("Line: "+line);
+				
+				
+}
 
 		}
 		System.out.println("returning students");
 		return students;
-		
+		*/
+return students;
 	}
 
 	public Student SortStudent(String studentLine) {
@@ -233,7 +267,7 @@ if (openP == closeP && openP != 0 ) {
 		boolean classLevelFound = false;
 		boolean locationFound = false;
 		System.out.println("sorting student");
-		System.out.println(studentLine);
+		System.out.println("Student line: "+ studentLine);
 		String firstName = "";
 		String lastName = "";
 		String classLevel = "";
@@ -241,7 +275,7 @@ if (openP == closeP && openP != 0 ) {
 		ArrayList<String>  betweenQuotes = getBetweenQuotes(studentLine);
 		
 		for (String string : betweenQuotes) {
-			//System.out.println(string);
+			
 		}
 		
 		for (int i = 0; i < betweenQuotes.size(); i++) {
@@ -268,9 +302,12 @@ if (openP == closeP && openP != 0 ) {
 			}
 		}
 		Student s = new Student();
+		
 		s.Name = firstName+" "+lastName;
 		s.Location = location;
 		s.Level= Integer.parseInt(classLevel);
+		System.out.println(s.Name+" "+s.Level);
+		
 		/* int startFirstName = 0;
 		int endFirstName = 0;
 		Student s = new Student();

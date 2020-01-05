@@ -82,6 +82,9 @@ int y = 0;
 		
 		LoadInfo("/Users/league/Desktop/lvl6-project/realjson");
 System.out.println("~~~~~~~~Loaded info~~~~~~~~~");
+sortStudentsIntoLevels(students);
+
+
 		System.out.println("Number of students: "+ students.size());
 for (int i = 0; i < students.size(); i++) {
 	String spacing = "";
@@ -352,6 +355,48 @@ return students;
 		return inBetweenQuotes;
 	}
 
+	public ArrayList<ArrayList<Student>> sortStudentsIntoLevels(ArrayList<Student> students){
+		ArrayList<Student> level0 = new ArrayList<Student>();
+		ArrayList<Student> level1 = new ArrayList<Student>();
+		ArrayList<Student> level2 = new ArrayList<Student>();
+		ArrayList<Student> level3 = new ArrayList<Student>();
+		ArrayList<Student> level4 = new ArrayList<Student>();
+		ArrayList<Student> level5 = new ArrayList<Student>();
+		ArrayList<Student> level6 = new ArrayList<Student>();
+		ArrayList<Student> level7 = new ArrayList<Student>();
+		ArrayList<Student> level8 = new ArrayList<Student>();
+		for (Student student : students) {
+			if(student.Level == 0) {
+				level0.add(student);
+			}
+			if(student.Level == 1) {
+				level1.add(student);
+			}
+			if(student.Level == 2) {
+				level2.add(student);
+			}
+			if(student.Level == 3) {
+				level3.add(student);
+			}
+			if(student.Level == 4) {
+				level4.add(student);
+			}
+			if(student.Level == 5) {
+				level5.add(student);
+			}
+			if(student.Level == 6) {
+				level6.add(student);
+			}
+			if(student.Level == 7) {
+				level7.add(student);
+			}
+			if(student.Level == 8) {
+				level8.add(student);
+			}
+		}
+		return null;
+	}
+	
 	/*
 	public void setUpStudentLabel(JLabel label, Student student) {
 		System.out.println("used student label");
